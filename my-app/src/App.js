@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 
 function App() {
   const state = {
@@ -9,24 +8,23 @@ function App() {
 
   function handleClick(e) {
     console.log(e.target);
-  };
+  }
 
   function mouseOver(e) {
     console.log(e.target);
-  };
+  }
 
-  function handleMouseOver(e){
+  function handleMouseOver(e) {
     console.log(e, e.pageX);
   }
 
-  function handleCopy(e){
-    console.log("be original!!!!!!");
+  function handleCopy(e) {
+    console.log('be original!!!!!!');
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src="logo.svg" className="App-logo" alt="logo" />
         <p>
           Name is {state.name} and my age is {state.age}
         </p>
