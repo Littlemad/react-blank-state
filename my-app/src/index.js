@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/basic.css';
-import './css/card.css';
+import './css/general.css';
 import App from './component/app';
 import * as serviceWorker from './serviceWorker';
 

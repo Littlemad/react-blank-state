@@ -121,4 +121,12 @@ function main() {
   );
 }
 
+/*
+Direct way to code increment
+
+            <button onClick={() => setState(state - 1)} className="btn">Prev Card</button>
+            <button onClick={() => setState(state + 1)} className="btn">Next Card</button>
+*/
+
+
 export default main;

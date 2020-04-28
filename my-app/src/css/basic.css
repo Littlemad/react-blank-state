@@ -54,3 +54,7 @@ html, button, body, input, select{font-family:"Open Sans",-apple-system,BlinkMac
 .h4{font-size:var(--fontSize24);}
 .h5{font-size:var(--fontSize20);}
 .small{font-size:var(--fontSize14);}
+
+.btn{cursor:pointer; border:1px solid #999; border-radius:5px; padding:8px 15px; font-weight:bold;}
+.btn.blue{border:1px solid #006; color:#fff; background:#006}
+.btn.red{border:1px solid #a00; color:#fff; background:#a00}
