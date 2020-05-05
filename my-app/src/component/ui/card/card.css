@@ -3,4 +3,12 @@
 .ui-card .box-btn .btn:last-child{margin-right:0;}
 .box-card{margin:20px 0; display:flex; justify-content:space-between;}
 .card{width:180px; height:220px; padding:10px 15px; border:1px solid #ccc; border-radius:10px; background:#fff;}
+.card.mini{height:auto;}
 .card-value{margin:20px 0;}
+.list-deck{margin:20px 0;}
+
+.name-card .li + .li .mini{border-top:0; border-radius:0;}
+/*
+.name-card .li:last-child .mini{border-radius:0 0 10px 10px;}
+.name-card .li:first-child .mini{border-radius:10px 10px 0 0;}
+*/
