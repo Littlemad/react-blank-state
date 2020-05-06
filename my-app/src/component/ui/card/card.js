@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import cardData from '../../data/cardData';
 import './card.css';
 
+
+/*
+USEFUL PIECE OF CODE:
+let elem = cardData.find((el) => el.id === i); // Function to look for ID element and compare
+****************************
+`myClassName ${isLastIndex ? 'li last' : 'li'}` // class + variable with conditional
+****************************
+*/
+
+
 function RenderCards() {
   // Setting state
   const [state, setState] = useState(1);
@@ -30,7 +40,7 @@ function RenderCards() {
   function MiniCard(prop) {
     return (
       <div className="card mini">
-        <p>Name: {prop.name}</p>
+        <p>{prop.name}</p>
       </div>
     );
   }
@@ -107,34 +117,39 @@ function RenderCards() {
 
   let myTxt = 'Your Deck is empty';
 
-  // show cards in library
+  // show each card in library
   function ShowDeck() {
-    let listDeck = "";
-    let cardWording = "";
+    let listDeck = '';
+    let cardWording = '';
+    let classStyle;
 
-    if (myLibrary.length !== 0){
-      if(myLibrary.length === 1){
-        cardWording = "card"
-      }else{
-        cardWording = "cards"
+      if (myLibrary.length === 1) {
+        cardWording = 'card';
+      } else {
+        cardWording = 'cards';
       }
       myTxt = `You have selected ${myLibrary.length} ${cardWording}`;
 
       listDeck = myLibrary.map((deckID, id) => {
         let elem = cardData.find((el) => el.id === deckID); // Function to look for ID element and compare
-        let classStyle;
 
-       console.log(elem)
-        if (deckID === 1) {
-          classStyle = 'first';
-        } else if (deckID === myLibrary.length) {
-          classStyle = 'last';
-        } else{
-          classStyle = '';
+
+        const isFirstAndOnlyIndex =  id === 0 && myLibrary.length === 1;
+        const isFirstIndex =  id === 0 && myLibrary.length !== 1;
+        const isLastIndex = id !== 0 && id === myLibrary.length - 1;
+
+        if(isFirstAndOnlyIndex){
+          classStyle = "li first-only";
+        }else if(isFirstIndex){
+          classStyle = "li first";
+        }else if(isLastIndex){
+          classStyle = "li last";
+        }else{
+          classStyle = "li";
         }
 
         return (
-          <li className={`li ${classStyle}`} key={id}>
+          <li className={classStyle} key={id}>
             <MiniCard
               name={elem.name}
               attack={elem.attack}
@@ -142,15 +157,14 @@ function RenderCards() {
             />
           </li>
         );
-
       });
-    }
+ 
     return (
       <div className="list-deck">
         {myTxt}
 
         <div className="name-card">
-          <ul className="no-li">{listDeck}</ul>
+          <ul className={'no-li'}>{listDeck}</ul>
         </div>
       </div>
     );

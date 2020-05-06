@@ -1,7 +1,7 @@
 const cardData = [
     {
         id: 1,
-        name:"Sword",
+        name:"Hammer",
         type: "equipment",
         attack: 2,
         defense: 0

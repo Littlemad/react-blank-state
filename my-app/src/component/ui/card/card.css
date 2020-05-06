@@ -7,8 +7,8 @@
 .card-value{margin:20px 0;}
 .list-deck{margin:20px 0;}
 
-.name-card .li + .li .mini{border-top:0; border-radius:0;}
-/*
-.name-card .li:last-child .mini{border-radius:0 0 10px 10px;}
-.name-card .li:first-child .mini{border-radius:10px 10px 0 0;}
-*/
+.name-card .li + .li .mini{border-top:0;}
+.name-card .li .mini{border-radius:0;}
+.name-card .first-only .mini{border-radius:10px;}
+.name-card .first .mini{border-radius:10px 10px 0 0;}
+.name-card .last .mini{border-radius:0 0 10px 10px;}
