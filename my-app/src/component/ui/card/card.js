@@ -9,13 +9,15 @@ let elem = cardData.find((el) => el.id === i); // Function to look for ID elemen
 ****************************
 `myClassName ${isLastIndex ? 'li last' : 'li'}` // class + variable with conditional
 ****************************
+<button onClick={e => myFunc(e)}>button</button> // To know about event.target content
+
 */
 
 
 function RenderCards() {
   // Setting state
   const [state, setState] = useState(1);
-  let [myLibrary, setMyLibrary] = useState([]);
+  const [myLibrary, setMyLibrary] = useState([]);
 
   // show all cards in the data JSON
   const cardContainer = cardData.map((card) => (
@@ -37,10 +39,27 @@ function RenderCards() {
     );
   }
 
-  function MiniCard(prop) {
+  function MiniCard(prop){
+    function removeCardFromDeck(){
+//      console.log("remove item "+myLibrary.filter(prop.id, 1));
+      console.log(myLibrary);
+
+      let myFilter = myLibrary.filter(removeCard => removeCard !== (prop.id+1));
+      //      const myFilter = myLibrary.filter(removeCard => removeCard != prop.id);
+      console.log("myProp= "+(prop.id + 1));
+      console.log("myFilter= "+myFilter);
+
+      setMyLibrary(myFilter);
+      console.log(myLibrary)
+      
+    };
+
     return (
       <div className="card mini">
         <p>{prop.name}</p>
+        <button onClick={() => removeCardFromDeck()} className="btn red delete">
+          Remove
+        </button>
       </div>
     );
   }
@@ -151,6 +170,7 @@ function RenderCards() {
         return (
           <li className={classStyle} key={id}>
             <MiniCard
+              id={id}
               name={elem.name}
               attack={elem.attack}
               defense={elem.defense}
@@ -174,9 +194,11 @@ function RenderCards() {
     <div className="ui-card">
       <div className="box-card">{cardContainer}</div>
 
-      <SingleCardValue cardId={state} />
+      <div className="box-deck">
+        <SingleCardValue cardId={state} />
 
-      {myLibrary.length > 0 ? ShowDeck() : myTxt}
+        {myLibrary.length > 0 ? ShowDeck() : myTxt}
+      </div>
 
       {HandleDeck()}
     </div>

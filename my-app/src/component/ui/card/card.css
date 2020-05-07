@@ -4,11 +4,11 @@
 .box-card{margin:20px 0; display:flex; justify-content:space-between;}
 .card{width:180px; height:220px; padding:10px 15px; border:1px solid #ccc; border-radius:10px; background:#fff;}
 .card.mini{height:auto;}
-.card-value{margin:20px 0;}
-.list-deck{margin:20px 0;}
 
 .name-card .li + .li .mini{border-top:0;}
 .name-card .li .mini{border-radius:0;}
 .name-card .first-only .mini{border-radius:10px;}
 .name-card .first .mini{border-radius:10px 10px 0 0;}
 .name-card .last .mini{border-radius:0 0 10px 10px;}
+
+.box-deck{display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); grid-gap:20px; margin:20px 0;}
